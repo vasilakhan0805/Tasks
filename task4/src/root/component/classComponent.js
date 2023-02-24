@@ -24,21 +24,22 @@ class ClassComponent extends React.Component {
             const yosh = 2023 - this.state.year
             this.setState({yosh:yosh})
         }
-       /* -----------------VALYUTA KURSINI ANIQLASH------------------*/ 
+              /* -----------------VALYUTA KURSINI ANIQLASH------------------*/
 
-        const onMoneyChange = (e)=>{
-            this.setState({sum: +e.target.value})
-        }
-       
-        const Transfer =()=>{
-                let som =  this.state.USdollar * this.state.sum;
-            this.setState({som:som})
-        }
+              const onMoneyChange = (e) => {
+                this.setState({ USdollar: +e.target.value })
+            }
+    
+            const Transfer = () => {
+                let som = this.state.USdollar * this.state.sum;
+                this.setState({ som: som })
+            }
+    
 
 
 
         return (
-            <div style={{display:"flex", gap:"50px"}}> 
+            <div style={{display:"flex", gap:"150px"}}> 
 
            {/* ------------------YOSH ANIQLASH-------- */}
 
@@ -51,18 +52,19 @@ class ClassComponent extends React.Component {
             </div>
 
 
-           {/* ------------------VALYUTA KURSINI ANIQLASH-------- */}
+           
+                {/* ------------------VALYUTA KURSINI ANIQLASH-------- */}
 
-            <div className="dollarKursi">
-            <h1>Dollar kursi</h1> 
-            <div style={{display:"flex",alignItems:"center",}}>
-            <h4>Dollarni kiriting:</h4>
-             <input type='number' value={this.state.USdollar} onChange={onMoneyChange}/>
-             <h4>Sizning summangiz:{this.state.som}</h4>
-             <button onClick={Transfer}>Transfer</button>
-            </div>
-            </div>
-
+                <div className="dollarKursi">
+                    <h1>Dollar kursi</h1>
+                    <div style={{ display: "flex", alignItems: "center", }}>
+                        <label>Dollarni kiriting:
+                        <input type='number' value={this.state.USdollar} onChange={onMoneyChange} />
+                        </label>
+                        <h4>Sizning summangiz:{this.state.som}</h4>
+                        <button onClick={Transfer}>Transfer</button>
+                    </div>
+                </div>
 
 
          </div>
