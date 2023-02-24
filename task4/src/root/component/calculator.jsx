@@ -18,9 +18,17 @@ class Calculator extends Component{
 
     render() { 
         /*---------------MULTI-STATE CHANGE----------------- */
-        const onChange =(e) =>{
-            const {value, name} = e.target
-            this.setState({[name]: value})
+
+        // const onChange =(e) =>{
+        //     const {value, name} = e.target
+        //     this.setState({[name]: value})
+        // }
+
+        const onChange1 = (e) =>{
+            this.setState({n1:+e.target.value})
+        }
+        const onChange2 = (e) =>{
+            this.setState({n2:+e.target.value})
         }
         const onOptionChange = (e) => {
             this.setState({option:e.target.value})
@@ -51,14 +59,14 @@ class Calculator extends Component{
          
         return(
             <div>
-                <input onChange={onChange} value={this.state.n1} type='number' placeholder="Enter your number"  name="n1"/>
+                <input onChange={onChange1} value={this.state.n1} type='number' placeholder="Enter your number"  name="n1"/>
                 <select onChange={onOptionChange} value={this.state.option}>
                     <option value="+">+</option>
                     <option value="-">-</option>
                     <option value="*">*</option>
                     <option value="/">/</option>
                 </select>
-                <input onChange={onChange} value={this.state.n2} type='number' placeholder="Enter your number" name="n2"/>
+                <input onChange={onChange2} value={this.state.n2} type='number' placeholder="Enter your number" name="n2"/>
                  <button onClick={()=>onResult(this.state.n1, this.state.n2, this.state.option)}>=</button>  
                  <span>{this.state.result}</span> 
                  <button onClick={onReset}>C</button>   
